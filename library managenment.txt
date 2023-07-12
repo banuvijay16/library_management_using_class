@@ -1,0 +1,132 @@
+class Library:
+    def __init__(self,list):
+        self.books_list = list
+        self.available_display_list = list[:]
+        self.books_lend ={ }
+    def display_all_books(self):
+        for book in self.books_list:
+            print(book)
+    def display_available_books(self):
+        for book in self.available_display_list:
+            print(book)
+    def lend_book(self,name,book):
+        if book not in self.books_list:
+            print("enter books from list")
+            return
+        if book in self.available_display_list:
+            self.books_lend.update({book:name})
+            self.available_display_list.remove(book)
+            print("u have taken book")
+        else:
+            print("already taken")
+    def return_book(self,book):
+        del self.books_lend[book]
+        self.available_display_list.append(book)
+        print("u have returned the book")
+lib =Library(["tamil", "english", "maths", "biology", "history"])
+print("welcome to library... enter an option..")
+while True:
+    print("enter 1 to display all books")
+    print("enter 2 to display available books")
+    print("enter 3 to lend a book")
+    print("enter 4 to return book")
+    print("enter 5 to quit")
+    ch = int(input())
+    if ch == 1:
+        lib.display_all_books()
+    elif ch == 2:
+        lib.display_available_books()
+    elif ch == 3:
+        name = input(print("enter ur name"))
+        book = input(print("enter ur book"))
+        lib.lend_book(name,book)
+    elif ch == 4:
+        book = input(print("enter the name of the book to return"))
+        lib.return_book(book)
+    elif ch == 5:
+        break
+    else:
+        print("enter from the above options")
+
+
+output:
+
+welcome to library... enter an option..
+enter 1 to display all books
+enter 2 to display available books
+enter 3 to lend a book
+enter 4 to return book
+enter 5 to quit
+1
+tamil
+english
+maths
+biology
+history
+enter 1 to display all books
+enter 2 to display available books
+enter 3 to lend a book
+enter 4 to return book
+enter 5 to quit
+3
+enter ur name
+Nonebanu
+enter ur book
+Nonetamil
+u have taken book
+enter 1 to display all books
+enter 2 to display available books
+enter 3 to lend a book
+enter 4 to return book
+enter 5 to quit
+3
+enter ur name
+Nonesonu
+enter ur book
+Nonehistory
+u have taken book
+enter 1 to display all books
+enter 2 to display available books
+enter 3 to lend a book
+enter 4 to return book
+enter 5 to quit
+2
+english
+maths
+biology
+enter 1 to display all books
+enter 2 to display available books
+enter 3 to lend a book
+enter 4 to return book
+enter 5 to quit
+1
+tamil
+english
+maths
+biology
+history
+enter 1 to display all books
+enter 2 to display available books
+enter 3 to lend a book
+enter 4 to return book
+enter 5 to quit
+4
+enter the name of the book to return
+Nonehistory
+u have returned the book
+enter 1 to display all books
+enter 2 to display available books
+enter 3 to lend a book
+enter 4 to return book
+enter 5 to quit
+2
+english
+maths
+biology
+history
+enter 1 to display all books
+enter 2 to display available books
+enter 3 to lend a book
+enter 4 to return book
+enter 5 to quit
+5
